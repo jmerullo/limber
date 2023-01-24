@@ -1,6 +1,7 @@
 # LIMBER: Linearly Mapping Between Representation spaces
 
 **Paper:** https://arxiv.org/abs/2209.15162
+
 **Authors:** Jack Merullo, Louis Castricato, Carsten Eickhoff, Ellie Pavlick
 
 Limber models are trained by stitching an image encoder (CLIP, NF-Resnet50, BEIT) to a text decoder (GPT-J) with a linear layer. This repo provides code for training and using limber models as they are presented in the paper.
