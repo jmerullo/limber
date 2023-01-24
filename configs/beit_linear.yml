@@ -1,0 +1,35 @@
+{
+    # image encoder settings
+    encoder_name: 'microsoft/beit-large-patch16-224-pt22k',
+    # adapter_config: {},
+    freeze_img_encoder: true,
+
+    # train settings
+    batch_size: 256,
+    train_steps: 15000,
+    lr: 8.0e-4,
+    min_lr: 0.0,
+    lr_decay_iters: 300000, #This is used for the warmupdecay lr scheduler
+    image_enc_lr: 2.0e-6, #not used? or does this get used for the projection layer
+    use_image_embed_layernorm: false,
+    image_embed_dropout_prob: 0.1,
+    image_size: 224,
+    image_seq_len: 196,
+
+    gradient_accumulation_steps: 8,
+    zero_stage: 2,
+    gradient_clipping: 1.0,
+
+    # dataset / save / load settings
+    train_dataset_name: 'conceptual_captions',
+    train_dataset_dir: '/fsx/cc3m/training',
+    eval_dataset_name: 'coco',
+    eval_dataset_dir: '/mnt/carp/datasets/mscoco/training',
+
+
+    save: "checkpoints/beit_linear",
+    load: "checkpoints/beit_linear",
+
+    eval_every: 100,
+
+}
