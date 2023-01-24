@@ -57,7 +57,7 @@ if __name__ == "__main__":
     #CLIP linear: [' a house in the woods']
 ```
 
-The LimberGPTJ class subclasses the "EleutherAI/gpt-j-6B" huggingface model. To setup the model to accept images and text as input, pass the path of a config file to the `setup_multimodal` method. This method will instantiate the image prefix used to encode images. Once embeddings are created, they can be passed into the model's generate method to create a caption. The underlying GPT-J and image encoder models are completely unchanged from their default state when used this way.
+The LimberGPTJ class subclasses the "EleutherAI/gpt-j-6B" huggingface model. To setup the model to accept images and text as input, pass the path of a config file to the `setup_multimodal` method. This method will instantiate the image prefix used to encode images. Once embeddings are created, they can be passed into the model's generate method to create a caption. The underlying GPT-J model are completely unchanged from their default state when used this way. Note that some layers in image encoders are changed for convenience but are otherwise frozen, e.g., the final CLIP attention pooling layer is turned into the identity matrix to simplify extracting the required hidden representations (this mimics the way [MAGMA](https://github.com/Aleph-Alpha/magma) is implemented).
 
 ## Training
 The code used to train the linear projections stitching the image and language models together can be found in `hf_main.py`. Training can be replicated with the provided `configs` and running `deepspeed hf_main.py`. The models used in the paper were trained on 16 40GB A100 gpus for 15,000 training steps on the CC3M image captions dataset. 
