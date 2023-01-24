@@ -11,7 +11,7 @@ Limber models are trained by stitching an image encoder (CLIP, NF-Resnet50, BEIT
 
 1. [Requirements](#Requirements)
 2. [Limber models for inference](#Inference)
-3. [Training][#Training]
+3. [Training](#Training)
 
 
 ## Requirements
@@ -49,7 +49,7 @@ def simple_load_model(config_path, limber_proj_path='auto', device='cuda:0'):
 
 
 if __name__ == "__main__":
-    config_path = 'configs/nfrn50_4096_linear.yml'
+    config_path = 'configs/clip_linear.yml'
     model = simple_load_model(config_path)
     print("Loaded model")
     model = model.cuda().half()
