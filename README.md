@@ -7,12 +7,6 @@ Limber models are trained by stitching an image encoder (CLIP, NF-Resnet50, BEIT
 
 ![Model](examples/model_arch.png?raw=true "Limber model")
 
-## Contents
-
-1. [Requirements](#Requirements)
-2. [Limber models for inference](#Inference)
-3. [Training](#Training)
-
 
 ## Requirements
 Python >=3.7.4 
