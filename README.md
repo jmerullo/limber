@@ -35,7 +35,7 @@ def simple_load_model(config_path, limber_proj_path='auto', device='cuda:0'):
         elif config_path.endswith("nfrn50_4096_linear.yml"):
             limber_proj_path = 'limber_weights/nfrn50_4096_linear/proj.ckpt'
         elif config_path.endswith('nfrn50_4096_random_linear.yml'):
-            limber_proj_path = 'limber_weights/nfrn50_4096_linear/proj.ckpt'
+            limber_proj_path = 'limber_weights/nfrn50_4096_random_linear/proj.ckpt'
         elif config_path.endswith('clip_linear.yml'):
             limber_proj_path = 'limber_weights/clip_linear/proj.ckpt'
     proj_ckpt = torch.load(limber_proj_path)
